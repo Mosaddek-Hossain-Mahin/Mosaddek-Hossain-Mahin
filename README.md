@@ -1,9 +1,9 @@
 ## Hi there 👋
 
 <!--
-**Mosaddek-Hossain-Mahin/Mosaddek-Hossain-Mahin** is a Student who is ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
+**Mosaddek-Hossain-Mahin/Mosaddek-Hossain-Mahin** a Student 
 
-Here are some ideas to get you started:
+
 
 - 🔭 I’m currently working on my final year Research
 - 🌱 I’m currently learning Web Delopment and some  Machine Leaning

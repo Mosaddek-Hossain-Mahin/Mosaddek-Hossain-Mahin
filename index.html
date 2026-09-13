@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>mahin@portfolio: ~/dev - Retro CRT Terminal Developer Portfolio</title>
+  <meta name="description"
+    content="Retro CRT phosphor-green terminal developer portfolio for MD. Mosaddek Hossain Mahin. Full-stack web developer specializing in Next.js, React, Node.js, NestJS, and PostgreSQL.">
+
+  <!-- Fonts: Monospace JetBrains Mono & IBM Plex Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,700&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- Canvas Radial Backgrounds -->
+  <div class="crt-radial-glow top-right"></div>
+  <div class="crt-radial-glow bottom-left"></div>
+
+  <!-- Fixed CRT Scanline Overlay -->
+  <div class="crt-scanlines" id="crt-overlay"></div>
+  <div class="crt-vignette"></div>
+
+  <!-- Main Terminal Application Window -->
+  <main class="terminal-wrapper">
+    <div class="terminal-window" id="terminal-window">
+
+      <!-- Terminal Title Bar -->
+      <header class="terminal-titlebar">
+        <div class="titlebar-left">
+          <div class="traffic-lights">
+            <span class="dot dot-red" title="Close"></span>
+            <span class="dot dot-amber" title="Minimize"></span>
+            <span class="dot dot-green" title="Expand"></span>
+          </div>
+          <div class="path-label">
+            <span class="path-user">mahin</span><span class="path-host">@portfolio</span><span
+              class="path-colon">:</span><span class="path-dir">~/dev</span>
+          </div>
+        </div>
+
+        <div class="titlebar-right">
+          <nav class="titlebar-nav">
+            <a href="#hero" class="nav-link">~/home</a>
+            <a href="#neofetch" class="nav-link">~/about</a>
+            <a href="#projects" class="nav-link">~/work</a>
+            <a href="#stack" class="nav-link">~/stack</a>
+            <a href="#contact" class="nav-link">~/contact</a>
+          </nav>
+
+          <div class="status-cluster">
+            <span class="amber-blinking-dot"></span>
+            <span class="status-text">available for work</span>
+          </div>
+
+          <div class="crt-controls">
+            <button class="icon-toggle" id="btn-toggle-scanlines" title="Toggle Scanlines [CRT]">
+              <span class="toggle-icon">[CRT: ON]</span>
+            </button>
+            <button class="icon-toggle" id="btn-toggle-audio" title="Toggle Sound [SFX: OFF]">
+              <span class="toggle-icon" id="audio-icon">[SFX: OFF]</span>
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Terminal Session Body Content -->
+      <div class="terminal-body" id="terminal-content">
+
+        <!-- SECTION 1: HERO (whoami --full) -->
+        <section class="term-section hero-section" id="hero">
+          <div class="cmd-prompt">
+            <span class="prompt-user">mahin</span><span class="prompt-path">~/dev</span> <span
+              class="prompt-glyph">$</span> <span class="cmd-input">whoami --full</span>
+          </div>
+
+          <div class="hero-content">
+            <!-- Name Banner scoped to class with explicit font-size !important per spec -->
+            <h1 class="hero-name-banner">
+              MOSADDEK HOSSAIN MAHIN<span class="cursor-underscore">_</span>
+            </h1>
+
+            <p class="role-line">
+              <span class="sage-glyph">&gt;</span> Full-stack web developer &amp; software engineer
+            </p>
+
+            <p class="hero-intro">
+              Passionate Full Stack Developer with software engineering experience at Evodynamix Solutions.
+              Specialized in crafting scalable web applications, REST APIs, and performant user interfaces
+              using Next.js, React, Node.js, NestJS, and PostgreSQL.
+            </p>
+
+            <div class="meta-checks">
+              <span class="meta-item"><span class="brackets">[x]</span> Location: Dhaka, BD (UTC+6)</span>
+              <span class="meta-item"><span class="brackets">[x]</span> Experience: 10+ Projects Completed</span>
+              <span class="meta-item"><span class="brackets">[x]</span> Availability: Open for Select Roles</span>
+            </div>
+
+            <div class="hero-cta-row">
+              <a href="#projects" class="cmd-btn primary-btn">
+                <span class="btn-prefix">$</span> ls ~/projects &rarr;
+              </a>
+              <a href="#contact" class="cmd-btn ghost-btn">
+                ./contact --hire
+              </a>
+              <a href="Mosaddek_Hossain_Mahin_CV.pdf" download="Mosaddek_Hossain_Mahin_CV.pdf" class="cmd-btn amber-btn"
+                onclick="handleDownloadCV(event)">
+                ./cv --download &darr;
+              </a>
+              <button class="cmd-btn outline-btn" id="btn-launch-cli">
+                &gt;_ interactive shell
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- SECTION 2: NEOFETCH IDENTITY CARD -->
+        <section class="term-section neofetch-section" id="neofetch">
+          <div class="cmd-prompt">
+            <span class="prompt-user">mahin</span><span class="prompt-path">~/dev</span> <span
+              class="prompt-glyph">$</span> <span class="cmd-input">neofetch</span>
+          </div>
+
+          <div class="neofetch-card">
+            <!-- Left Column: Pixel ASCII Avatar -->
+            <div class="neofetch-avatar-col">
+              <pre class="ascii-avatar-box">
+ █▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀▀█
+ █  ▄▄▄▄▄  ▄▄▄▄▄  █
+ █ ▐█████▌▐█████▌ █
+ █ ▐█▀▀▀█▌▐█▀▀▀█▌ █
+ █ ▐█████▌▐█████▌ █
+ █  ▀▀▀▀▀  ▀▀▀▀▀  █
+ █    ▄▄▄▄▄▄▄▄    █
+ █   ▐████████▌   █
+ █    ▀▀▀▀▀▀▀▀    █
+ █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█</pre>
+              <div class="avatar-label">mahin@dev</div>
+            </div>
+
+            <!-- Right Column: System Info List -->
+            <div class="neofetch-info-col">
+              <div class="neofetch-header">
+                <span class="user-part">mahin</span>@<span class="host-part">portfolio</span>
+              </div>
+              <div class="neofetch-separator">-----------------------------------------</div>
+
+              <dl class="info-list">
+                <div class="info-row">
+                  <dt class="info-key">OS:</dt>
+                  <dd class="info-val">Human v10.4 (developer build)</dd>
+                </div>
+                <div class="info-row">
+                  <dt class="info-key">Host:</dt>
+                  <dd class="info-val">Remote, Dhaka BD (UTC+6)</dd>
+                </div>
+                <div class="info-row">
+                  <dt class="info-key">Role:</dt>
+                  <dd class="info-val">Full-Stack Web Developer</dd>
+                </div>
+                <div class="info-row">
+                  <dt class="info-key">Uptime:</dt>
+                  <dd class="info-val">12+ mos exp, Evodynamix Solutions, 10+ projects</dd>
+                </div>
+                <div class="info-row">
+                  <dt class="info-key">Shell:</dt>
+                  <dd class="info-val">zsh, vscode, git, postman</dd>
+                </div>
+                <div class="info-row">
+                  <dt class="info-key">Stack:</dt>
+                  <dd class="info-val">Next.js, React, Node.js, NestJS, Postgres</dd>
+                </div>
+                <div class="info-row">
+                  <dt class="info-key">Focus:</dt>
+                  <dd class="info-val">scalable web apps &amp; REST API architecture</dd>
+                </div>
+                <div class="info-row">
+                  <dt class="info-key">Status:</dt>
+                  <dd class="info-val"><span class="amber-status-badge">● available</span> for select work</dd>
+                </div>
+              </dl>
+
+              <!-- Palette Swatches -->
+              <div class="palette-swatches">
+                <span class="swatch swatch-black" title="Black"></span>
+                <span class="swatch swatch-red" title="Red"></span>
+                <span class="swatch swatch-green" title="Green"></span>
+                <span class="swatch swatch-amber" title="Amber"></span>
+                <span class="swatch swatch-cyan" title="Cyan"></span>
+                <span class="swatch swatch-blue" title="Blue"></span>
+                <span class="swatch swatch-purple" title="Purple"></span>
+                <span class="swatch swatch-white" title="White"></span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- SECTION 3: WORK GRID (ls -la ~/projects) -->
+        <section class="term-section projects-section" id="projects">
+          <div class="cmd-prompt">
+            <span class="prompt-user">mahin</span><span class="prompt-path">~/dev</span> <span
+              class="prompt-glyph">$</span> <span class="cmd-input">ls -la ~/projects # 4 selected</span>
+          </div>
+
+          <div class="section-subtext">&gt; selected work</div>
+          <h2 class="section-title">Things I built and shipped <span class="dim-perm">// drwxr-xr-x</span></h2>
+
+          <div class="projects-grid">
+
+            <!-- Project 1 -->
+            <article class="project-card">
+              <div class="card-top-row">
+                <div class="card-filename">real-estate-app<span class="dim-slash">/</span></div>
+                <div class="card-meta">
+                  <span class="amber-stars">&#9733; 4.8k</span>
+                  <span class="file-perm">-rwxr-xr-x</span>
+                </div>
+              </div>
+              <p class="card-desc">
+                Comprehensive real estate web platform featuring property listings, booking management system, and
+                interactive admin dashboard.
+              </p>
+              <div class="card-tags">
+                <span class="tag">Next.js</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">PostgreSQL</span>
+                <span class="tag tag-amber">SaaS</span>
+              </div>
+              <div class="card-links">
+                <a href="https://github.com/Mosaddek-Hossain-Mahin" target="_blank" rel="noopener" class="card-link"
+                  onclick="handleProjectClick(event, 'real-estate-app', 'demo')">live demo &nearr;</a>
+                <a href="https://github.com/Mosaddek-Hossain-Mahin" target="_blank" rel="noopener" class="card-link"
+                  onclick="handleProjectClick(event, 'real-estate-app', 'source')">source &nearr;</a>
+              </div>
+            </article>
+
+            <!-- Project 2 -->
+            <article class="project-card">
+              <div class="card-top-row">
+                <div class="card-filename">ecommerce-api<span class="dim-slash">/</span></div>
+                <div class="card-meta">
+                  <span class="amber-stars">&#9733; 3.9k</span>
+                  <span class="file-perm">-rwxr-xr-x</span>
+                </div>
+              </div>
+              <p class="card-desc">
+                Scalable e-commerce web application with product management, shopping cart, checkout flow, JWT
+                authentication, and admin panel.
+              </p>
+              <div class="card-tags">
+                <span class="tag">React.js</span>
+                <span class="tag">NestJS</span>
+                <span class="tag">JWT</span>
+                <span class="tag tag-amber">open source</span>
+              </div>
+              <div class="card-links">
+                <a href="https://github.com/Mosaddek-Hossain-Mahin" target="_blank" rel="noopener" class="card-link"
+                  onclick="handleProjectClick(event, 'ecommerce-api', 'demo')">live demo &nearr;</a>
+                <a href="https://github.com/Mosaddek-Hossain-Mahin" target="_blank" rel="noopener" class="card-link"
+                  onclick="handleProjectClick(event, 'ecommerce-api', 'source')">source &nearr;</a>
+              </div>
+            </article>
+
+            <!-- Project 3 -->
+            <article class="project-card">
+              <div class="card-top-row">
+                <div class="card-filename">auth-system<span class="dim-slash">/</span></div>
+                <div class="card-meta">
+                  <span class="amber-stars">&#9733; 2.5k</span>
+                  <span class="file-perm">-rwxr-xr-x</span>
+                </div>
+              </div>
+              <p class="card-desc">
+                Full-stack REST API with JWT authentication, role-based access control (RBAC), PostgreSQL integration,
+                and secure endpoint management.
+              </p>
+              <div class="card-tags">
+                <span class="tag">Node.js</span>
+                <span class="tag">NestJS</span>
+                <span class="tag">Postgres</span>
+                <span class="tag tag-amber">open source</span>
+              </div>
+              <div class="card-links">
+                <a href="https://github.com/Mosaddek-Hossain-Mahin" target="_blank" rel="noopener" class="card-link"
+                  onclick="handleProjectClick(event, 'auth-system', 'demo')">live demo &nearr;</a>
+                <a href="https://github.com/Mosaddek-Hossain-Mahin" target="_blank" rel="noopener" class="card-link"
+                  onclick="handleProjectClick(event, 'auth-system', 'source')">source &nearr;</a>
+              </div>
+            </article>
+
+            <!-- Project 4 -->
+            <article class="project-card">
+              <div class="card-top-row">
+                <div class="card-filename">portfolio-v2<span class="dim-slash">/</span></div>
+                <div class="card-meta">
+                  <span class="amber-stars">&#9733; 1.8k</span>
+                  <span class="file-perm">-rwxr-xr-x</span>
+                </div>
+              </div>
+              <p class="card-desc">
+                Interactive retro CRT phosphor-green terminal developer portfolio with Web Audio sound effects, live
+                REPL shell, and custom CSS design.
+              </p>
+              <div class="card-tags">
+                <span class="tag">TypeScript</span>
+                <span class="tag">Next.js</span>
+                <span class="tag">CSS</span>
+                <span class="tag tag-amber">open source</span>
+              </div>
+              <div class="card-links">
+                <a href="https://github.com/Mosaddek-Hossain-Mahin" target="_blank" rel="noopener" class="card-link"
+                  onclick="handleProjectClick(event, 'portfolio-v2', 'demo')">live demo &nearr;</a>
+                <a href="https://github.com/Mosaddek-Hossain-Mahin" target="_blank" rel="noopener" class="card-link"
+                  onclick="handleProjectClick(event, 'portfolio-v2', 'source')">source &nearr;</a>
+              </div>
+            </article>
+
+          </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- SECTION 4: PROFICIENCY (cat stack.txt | sort -r) -->
+        <section class="term-section stack-section" id="stack">
+          <div class="cmd-prompt">
+            <span class="prompt-user">mahin</span><span class="prompt-path">~/dev</span> <span
+              class="prompt-glyph">$</span> <span class="cmd-input">cat stack.txt | sort -r</span>
+          </div>
+
+          <div class="section-subtext">&gt; proficiency</div>
+          <h2 class="section-title">The tools I reach for <span class="dim-perm">// self-assessed, honest</span></h2>
+
+          <div class="stack-panel">
+            <div class="skills-grid">
+
+              <!-- Skill 1 -->
+              <div class="skill-row">
+                <span class="skill-label">Next.js / React</span>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="width: 95%;"></div>
+                </div>
+                <span class="skill-pct">95%</span>
+              </div>
+
+              <!-- Skill 2 -->
+              <div class="skill-row">
+                <span class="skill-label">TypeScript / JS</span>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="width: 92%;"></div>
+                </div>
+                <span class="skill-pct">92%</span>
+              </div>
+
+              <!-- Skill 3 -->
+              <div class="skill-row">
+                <span class="skill-label">Node.js / NestJS</span>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="width: 90%;"></div>
+                </div>
+                <span class="skill-pct">90%</span>
+              </div>
+
+              <!-- Skill 4 -->
+              <div class="skill-row">
+                <span class="skill-label">PostgreSQL / SQL</span>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="width: 88%;"></div>
+                </div>
+                <span class="skill-pct">88%</span>
+              </div>
+
+              <!-- Skill 5 -->
+              <div class="skill-row">
+                <span class="skill-label">REST APIs / JWT</span>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="width: 86%;"></div>
+                </div>
+                <span class="skill-pct">86%</span>
+              </div>
+
+              <!-- Skill 6 -->
+              <div class="skill-row">
+                <span class="skill-label">Tailwind CSS / UI</span>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="width: 85%;"></div>
+                </div>
+                <span class="skill-pct">85%</span>
+              </div>
+
+              <!-- Skill 7 -->
+              <div class="skill-row">
+                <span class="skill-label">Git / GitHub</span>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="width: 82%;"></div>
+                </div>
+                <span class="skill-pct">82%</span>
+              </div>
+
+              <!-- Skill 8 -->
+              <div class="skill-row">
+                <span class="skill-label">Figma / Design</span>
+                <div class="skill-bar-track">
+                  <div class="skill-bar-fill" style="width: 78%;"></div>
+                </div>
+                <span class="skill-pct">78%</span>
+              </div>
+
+            </div>
+          </div>
+        </section>
+
+        <div class="section-divider"></div>
+
+        <!-- SECTION 5: CONTACT CTA (./contact --hire) -->
+        <section class="term-section contact-section" id="contact">
+          <div class="cmd-prompt">
+            <span class="prompt-user">mahin</span><span class="prompt-path">~/dev</span> <span
+              class="prompt-glyph">$</span> <span class="cmd-input">./contact --hire</span>
+          </div>
+
+          <div class="contact-cta-panel">
+            <h2 class="contact-title">
+              Let's build <span class="highlight-green">something together.</span>
+            </h2>
+            <p class="contact-sub">
+              Available for select full-stack contract work, web app engineering, and software developer roles.
+            </p>
+
+            <!-- Copyable Mail Command Box -->
+            <div class="mail-cmd-box" id="copy-mail-box" title="Click to copy email address">
+              <div class="mail-cmd-text">
+                <span class="prompt-glyph">$</span> mail mahinmosaddekhossain@gmail.com<span
+                  class="blinking-caret">█</span>
+              </div>
+              <button class="copy-badge-btn" id="copy-btn">
+                <span id="copy-text">click to copy</span>
+              </button>
+            </div>
+
+            <!-- Social Pills Row with Download CV Pill -->
+            <div class="social-pills-row">
+              <a href="https://github.com/Mosaddek-Hossain-Mahin" target="_blank" rel="noopener" class="social-pill">
+                github &rarr;
+              </a>
+              <a href="https://linkedin.com/in/mosaddek-hossain-mahin" target="_blank" rel="noopener"
+                class="social-pill">
+                linkedin &rarr;
+              </a>
+              <a href="https://twitter.com/mosaddek_mahin" target="_blank" rel="noopener" class="social-pill">
+                twitter &rarr;
+              </a>
+              <a href="Mosaddek_Hossain_Mahin_CV.pdf" download="Mosaddek_Hossain_Mahin_CV.pdf"
+                class="social-pill amber-pill" onclick="handleDownloadCV(event)">
+                CV.pdf &darr;
+              </a>
+            </div>
+          </div>
+        </section>
+
+        <!-- INTERACTIVE SHELL PROMPT OVERLAY / CONSOLE INPUT -->
+        <div class="interactive-shell-drawer hidden" id="cli-drawer">
+          <div class="cli-header">
+            <span>&gt;_ INTERACTIVE REPL CONSOLE (Type 'help' or 'clear')</span>
+            <button class="cli-close" id="btn-close-cli">[ESC / X]</button>
+          </div>
+          <div class="cli-output" id="cli-output-log">
+            <div class="cli-line sys-msg">Mahin CRT Shell v2.4.0 (x86_64-pc-terminal)</div>
+            <div class="cli-line sys-msg">Type 'help' for available commands or 'cv' to download resume.</div>
+          </div>
+          <div class="cli-input-row">
+            <span class="prompt-user">mahin</span><span class="prompt-path">~/dev</span> <span
+              class="prompt-glyph">$</span>
+            <input type="text" id="cli-input" class="cli-input-field" placeholder="type a command..." autocomplete="off"
+              spellcheck="false">
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Terminal Footer -->
+      <footer class="terminal-footer">
+        <div class="footer-left">
+          <span class="prompt-glyph">$</span> echo "(c) 2026 MD. Mosaddek Hossain Mahin, built in the terminal, shipped
+          fast"<span class="blinking-caret">█</span>
+        </div>
+        <div class="footer-right">
+          <span class="git-status">last commit: 2h ago, main@a1f9e2c, uptime <span
+              id="uptime-counter">99.98%</span></span>
+        </div>
+      </footer>
+
+    </div>
+  </main>
+
+  <!-- Interactive Audio / Toast Popup Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

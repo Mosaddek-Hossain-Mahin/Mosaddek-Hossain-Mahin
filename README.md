@@ -31,8 +31,12 @@ This uploads your new commit and updates your remote repository. Because you alr
 
 
 
+updating a repo
+1. git add .
 
+2. git commit -m "Fix minor typo in file"
 
+3. git push origin main
 
 
 
